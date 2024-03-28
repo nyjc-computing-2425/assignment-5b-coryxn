@@ -21,6 +21,7 @@ def read_csv(filename):
       rec[0] = int(rec[0])
       rec[3] = int(rec[3])
       data.append(rec)
+    #f.close() is called automatically
     return data
 
 # Part 2
@@ -103,16 +104,18 @@ def write_csv(filename, header, data):
     output = ','.join(header)+'\n'
     f.write(output)
     count = 0
-    for data in enrolment_by_year:
-      output = f'{data[0]}, {data[1]}'
+    for rec in data:
+      output = f'{rec[0]}, {rec[1]}\n'
       f.write(output)
       count += 1
+    #f.close() is called automatically
   return count
 
 
 # TESTING
 # You can write code below to call the above functions
 # and test the output
+  
 enrolment_data = read_csv('pre-u-enrolment-by-age.csv')
 # print(enrolment)
 
